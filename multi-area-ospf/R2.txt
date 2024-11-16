@@ -1,0 +1,24 @@
+!
+hostname R2
+!
+
+interface GigabitEthernet0/0
+ description R2 to R1
+ ip address 192.168.10.2 255.255.255.0
+ duplex auto
+ speed auto
+ media-type rj45
+!
+
+interface GigabitEthernet0/1
+ description R2 to R4
+ ip address 192.168.50.1 255.255.255.0
+ duplex auto
+ speed auto
+ media-type rj45
+!
+
+router ospf 24
+ network 192.168.10.0 0.0.0.255 area 0
+ network 192.168.50.0 0.0.0.255 area 1
+!
